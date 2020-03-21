@@ -573,7 +573,13 @@ public class ExoPlayerRecyclerView extends RecyclerView {
 
     public void onPausePlayer() {
         if (videoPlayer != null) {
-            videoPlayer.stop();
+            videoPlayer.setPlayWhenReady(false);
+        }
+    }
+
+    public void play() {
+        if (videoPlayer != null) {
+            videoPlayer.setPlayWhenReady(true);
         }
     }
 

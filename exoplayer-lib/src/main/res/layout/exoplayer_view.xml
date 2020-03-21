@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.honey.player_lib.ExoPlayerRecyclerView
+    <com.honey.exoplayer_lib.ExoPlayerRecyclerView
         android:id="@+id/exoplayer_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

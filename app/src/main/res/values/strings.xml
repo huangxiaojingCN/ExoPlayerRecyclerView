@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ExoPlayerRecycerView</string>
+    <string name="title">Video</string>
 </resources>

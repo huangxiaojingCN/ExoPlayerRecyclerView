@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PlayerView extends FrameLayout {
+public class ExoPlayerView extends FrameLayout {
 
     private Context context;
 
@@ -18,24 +18,20 @@ public class PlayerView extends FrameLayout {
 
     private ExoPlayerRecyclerView exoPlayerRecyclerView;
 
-    private ExoPlayerRecyclerView.OnFullScreenListener fullScreenListener = new ExoPlayerRecyclerView.OnFullScreenListener() {
-
-        @Override
-        public void onFullScreen(boolean fullScreen) {
-            if (fullScreen) {
-                hideActionBar();
-            } else {
-                showActionBar();
-            }
+    private ExoPlayerRecyclerView.OnFullScreenListener fullScreenListener = fullScreen -> {
+        if (fullScreen) {
+            hideActionBar();
+        } else {
+            showActionBar();
         }
     };
 
 
-    public PlayerView(Context context) {
+    public ExoPlayerView(Context context) {
         this(context, null);
     }
 
-    public PlayerView(Context context, @Nullable AttributeSet attrs) {
+    public ExoPlayerView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
         this.context = context;
@@ -61,6 +57,24 @@ public class PlayerView extends FrameLayout {
 
     public void setAutoPlay(boolean autoPlay) {
         exoPlayerRecyclerView.setAutoPlay(autoPlay);
+    }
+
+    public void onPausePlayer() {
+        if (exoPlayerRecyclerView != null) {
+            exoPlayerRecyclerView.onPausePlayer();
+        }
+    }
+
+    public void play() {
+        if (exoPlayerRecyclerView != null) {
+            exoPlayerRecyclerView.play();
+        }
+    }
+
+    public void releasePlayer() {
+        if (exoPlayerRecyclerView != null) {
+            exoPlayerRecyclerView.releasePlayer();
+        }
     }
 
     private void hideActionBar() {
